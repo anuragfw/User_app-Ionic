@@ -1,0 +1,71 @@
+<ion-header>
+    
+      <ion-navbar>
+        <ion-buttons start>
+          <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+        </ion-buttons>
+        <ion-title>Post Job</ion-title>
+      </ion-navbar>
+    
+    </ion-header>
+    
+    <ion-content>
+      <form #heroForm="ngForm" novalidate>
+    
+        <ion-list class="base" padding="true">
+          <ion-item-group>
+            <ion-item>
+              <ion-input type="text" [(ngModel)]="data.title" name='title' #title="ngModel" placeholder="Title" required></ion-input>
+            </ion-item>
+            <div *ngIf="title.errors && (title.dirty || title.touched)" class="alert alert-danger">
+              <div [hidden]="!title.errors.required" class="alert alert-danger">
+                Title is required
+              </div>
+            </div>
+    
+            <ion-item>
+              <ion-input type="number" [(ngModel)]="data.cost" name='cost' #cost="ngModel" placeholder="Cost" required></ion-input>
+            </ion-item>
+            <div *ngIf="cost.errors && (cost.dirty || cost.touched)" class="alert alert-danger">
+              <div [hidden]="!cost.errors.required" class="alert alert-danger">
+                cost is required
+              </div>
+            </div>
+    
+            <ion-item>
+              <ion-input type="date" [(ngModel)]="data.time" name='time' #time="ngModel" placeholder="Date" required></ion-input>
+            </ion-item>
+            <div *ngIf="time.errors && (time.dirty || time.touched)" class="alert alert-danger">
+              <div [hidden]="!time.errors.required" class="alert alert-danger">
+                Time is required
+              </div>
+            </div>
+    
+            <ion-item>
+              <ion-input type="text" [(ngModel)]="data.special_needs" name='special_needs' #special_needs="ngModel" placeholder="Special Need" required></ion-input>
+            </ion-item>
+            <div *ngIf="special_needs.errors && (special_needs.dirty || special_needs.touched)" class="alert alert-danger">
+              <div [hidden]="!special_needs.errors.required" class="alert alert-danger">
+                Special need is required
+              </div>
+            </div>
+    
+    
+            <ion-item class="textarea1">
+              <textarea name="description" id="description" required [(ngModel)]="data.description" name='description' #description="ngModel"
+                cols="1" rows="5" placeholder="Job Description"></textarea>
+            </ion-item>
+            <div *ngIf="description.errors && (description.dirty || description.touched)" class="alert alert-danger">
+              <div [hidden]="!description.errors.required" class="alert alert-danger">
+                Job Description is required
+              </div>
+            </div>
+    
+          </ion-item-group>
+        </ion-list>
+        <button ion-button type="submit" (click)="onSubmit(heroForm)" [disabled]="!heroForm.valid" class="publish">Submit</button>
+      </form>
+    
+    </ion-content>

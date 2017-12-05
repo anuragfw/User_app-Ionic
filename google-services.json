@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "17625632270",
+    "project_id": "dostuser"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:17625632270:android:33642fcc0bae611e",
+        "android_client_info": {
+          "package_name": "com.dost.user"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "17625632270-u9k2g22t9nocfmkmie0ngg2vt2996tq4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dost.user",
+            "certificate_hash": "a3c1f092bab25f3285228b55a28411360854a46f"
+          }
+        },
+        {
+          "client_id": "17625632270-or9fnrk1bo60h4fnftsh6k2cbct8a3k1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvYPiXL933ej8D4N6gRDzRpGwV-6Nz9is"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

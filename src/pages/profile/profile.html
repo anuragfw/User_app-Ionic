@@ -1,0 +1,319 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <form>
+
+<div class="profileouter">  
+    <div class="profileimg" *ngIf='userdata.image'> 
+    <img [src]="userdata.image">
+</div>
+   <div class="profileimg" *ngIf='!userdata.image'> 
+    <img src="assets/image/index.jpg">
+
+    </div>
+</div>
+
+   <div class="signin_field">
+        <div class="date" *ngIf="userdata.vendor_type!=undefined">
+          <h4>Vendor Type</h4>
+          <h4>{{userdata.vendor_type}}</h4>
+        </div>
+
+        <div class="date" *ngIf="userdata.company_name!=undefined">
+          <h4>Comapny Name</h4>
+          <h4 *ngIf="userdata.company_name">{{userdata.company_name}}</h4>
+        </div>
+
+         <div class="date" *ngIf="userdata.email!='undefined' ">
+          <h4 *ngIf="userdata.email!='undefined' || userdata.email!=''|| userdata.email!=null ">Email</h4>
+          <h4>{{userdata.email}}</h4>
+        </div>
+
+        <div class="date" *ngIf="userdata.phone!=undefined">
+          <h4>Phone Number</h4>
+          <h4>{{userdata.phone}}</h4>
+        </div>
+</div>
+
+
+<!--process start-->
+  
+
+  <ion-list class="base">
+    <ion-item-group *ngIf="userdata.establishment_year!='null' && userdata.working_hours != 'undefined' && userdata.facebook_username!= 'undefined' && userdata.twitter_username!='undefined' && userdata.instagram_username && userdata.awards">
+        <ion-item-divider color="light">Basic Info</ion-item-divider>
+        <div *ngIf="userdata.establishment_year!='null'">
+      <div class="date" *ngIf="userdata.establishment_year !=null">
+          <h4 >Establishment Year</h4>
+          <h4>{{userdata.establishment_year}}</h4>
+        </div>
+        </div>
+          <div *ngIf="userdata.sworking_hours != 'undefined' || userdata.eworking_hours != 'undefined'">
+        <div class="date" >
+          <h4  *ngIf="userdata.sworking_hours"> Start Time</h4>
+          <h4>{{userdata.sworking_hours}} hrs</h4>
+         </div>
+         <div  class="date">
+            <h4  *ngIf="userdata.eworking_hours"> End Time</h4>
+          <h4>{{userdata.eworking_hours}} hrs</h4>
+         </div>
+        </div>
+         <div *ngIf="userdata.facebook_username">
+        <div class="date" *ngIf="userdata.facebook_username!= 'undefined'">
+          <h4 *ngIf="userdata.facebook_username">Facebook</h4>
+          <h4>{{userdata.facebook_username}}</h4>
+        </div>
+        </div>
+        <div  *ngIf="userdata.twitter_username">
+        <div class="date" *ngIf="userdata.twitter_username!='undefined'">
+          <h4>Twitter</h4>
+          <h4>{{userdata.twitter_username}}</h4>
+        </div>
+        </div>
+          <div *ngIf="userdata.instagram_username">
+        <div class="date" *ngIf="userdata.instagram_username!='undefined'">
+          <h4 *ngIf="userdata.instagram_username">Instagram</h4>
+          <h4 >{{userdata.instagram_username}}</h4>
+        </div>
+        </div>
+      <div *ngIf="userdata.awards">
+        <div class="date" *ngIf="userdata.awards!='undefined'  ">
+          <h4>Award & Recognition</h4>
+          <h4>{{userdata.awards}}</h4>
+        </div>
+      </div>
+    </ion-item-group>
+  </ion-list>
+
+<ion-list class="base inpt">
+    <ion-item-group>
+        <ion-item-divider color="light">Service & Cost Details</ion-item-divider>
+     <h3>{{userdata.vendor_type}}</h3>
+
+     <div style="width:100%;float:left;height:1vh;"></div>
+<div *ngIf="userdata.photo_vedio">
+     <span class="per" *ngIf="userdata.photo_vedio.photo!='' || userdata.photo_vedio.vedio!=''">Price Per month</span>
+   <div class="date" *ngIf="userdata.photo_vedio.photo!='' || userdata.photo_vedio.photo">
+          <h4>Photo</h4>
+          <h4>rs {{userdata.photo_vedio.photo}}</h4>
+        </div>
+        
+   <div class="date" *ngIf="userdata.photo_vedio.vedio">
+          <h4>Video</h4>
+          <h4> rs {{userdata.photo_vedio.vedio}}</h4>
+        </div>
+      </div>
+     <div style="width:100%;float:left;height:1vh;"></div>
+   
+  <div *ngFor="let hh of userdata.additional_photo_vedio">
+     <span class="per" *ngIf="hh.day!='' || hh.vedio!=''" >Price Per {{hh.day}}</span>
+   <div class="date" *ngIf="hh.photo" >
+          <h4>Photo</h4>
+          <h4>rs {{hh.photo}}</h4>
+        </div>
+        
+   <div class="date" *ngIf="hh.vedio" >
+          <h4>Video</h4>
+          <h4> rs {{hh.vedio}}</h4>
+        </div>
+        </div>
+
+<div style="width:100%;float:left;height:1vh;"></div>
+
+    <div class="on">
+
+    <ion-label class="label ad" style="margin: 0px;" *ngIf="userdata.addon!='' && userdata.addon">Addon:</ion-label>
+
+    <ul class="addn" *ngIf="userdata.addon!=undefined">
+      <li *ngIf="userdata.addon.candid!=undefined">
+        <div class="date">
+          <h4>Candid</h4>
+          <h4>rs {{userdata.addon.candid}}</h4>
+        </div>
+      </li>
+      <li *ngIf="userdata.addon.video_editing!=undefined">
+       <div class="date">
+          <h4>Video Editing</h4>
+          <h4>rs {{userdata.addon.video_editing}}</h4>
+        </div>
+      </li>
+      <li *ngIf="userdata.addon.photo_book!=undefined">
+        <div class="date">
+          <h4>Photo Book</h4>
+          <h4>rs {{userdata.addon.photo_book}}</h4>
+        </div>
+      </li>
+      <li *ngIf="userdata.addon.portrait_framing!=undefined">
+        <div class="date">
+          <h4>Portrait & Framing</h4>
+          <h4>rs {{userdata.addon.portrait_framing}}</h4>
+        </div>
+      </li>
+       <li *ngIf="userdata.additional_addon" >
+        <div class="date" *ngFor="let kk of userdata.additional_addon">
+          <h4>{{kk.title}}</h4>
+          <h4>rs {{kk.amount}}</h4>
+        </div>
+      </li>
+    </ul>
+    <ul class="addn" *ngIf="userdata.additional_addon" >
+       <span *ngIf="userdata.additional_addon.length>0">
+      <li  *ngFor="let chegdfcl of userdata.additional_addon ">
+        <div class="date">
+            <h4> {{chegdfcl.title}} </h4>
+          <h4>rs {{chegdfcl.amount}}</h4>
+          </div>
+        </li>
+      </span>
+    </ul>
+
+<ion-label class="label ad" style="margin: 15px 0 0;" *ngIf="userdata.discount.day!='' && userdata.discount.title!=undefined && userdata.discount.amount!=undefined">Discount:</ion-label>
+   <div class="date" *ngIf="userdata.discount.day!='' && userdata.discount.title!=undefined && userdata.discount.amount!=undefined">
+          <h4  *ngIf="userdata.discount.day!=undefined">{{userdata.discount.day}} Day</h4>
+           <h4 *ngIf="userdata.discount.title!=undefined">{{userdata.discount.title}} </h4>
+          <h4 *ngIf="userdata.discount.amount!=undefined">rs {{userdata.discount.amount}}</h4>
+        </div>
+
+      </div><!--on_end-->
+
+    </ion-item-group>
+  </ion-list>
+
+<ion-list class="base inpt">
+    <ion-item-group>
+        <ion-item-divider color="light" *ngIf="userdata.highlights!=''">Highlights</ion-item-divider>
+
+    <div class="on">
+
+    <ul class="addn" *ngIf="userdata.highlights!=undefined">
+      <li  *ngIf="userdata.highlights.candid!=undefined">
+        <div class="date">
+          <h4>Candid</h4>
+          <h4>rs {{userdata.highlights.candid}} </h4>
+        </div>
+      </li>
+      <li>
+       <div class="date"  *ngIf="userdata.highlights.video_editing!=undefined">
+          <h4>Video Editing</h4>
+          <h4>rs {{userdata.highlights.video_editing}}</h4>
+        </div>
+      </li>
+      <li *ngIf="userdata.highlights.photo_book!=undefined">
+        <div class="date"  >
+          <h4>Photo Book</h4>
+          <h4>rs {{userdata.highlights.photo_book}}</h4>
+        </div>
+      </li>
+      <li>
+        <div class="date"  *ngIf="userdata.highlights.portrait_framing!=undefined">
+          <h4>Portrait & Framing</h4>
+          <h4>rs {{userdata.highlights.portrait_framing}}</h4>
+        </div>
+      </li>
+       <li  *ngIf="userdata.highlights.theme_wedding!=undefined">
+        <div class="date">
+          <h4>theme_wedding</h4>
+          <h4>rs {{userdata.highlights.theme_wedding}} </h4>
+        </div>
+      </li>
+    </ul>
+     <ul class="addn" *ngIf="userdata.additional_highlights" >
+       <span *ngIf="userdata.additional_highlights.length>0">
+      <li  *ngFor="let checl of userdata.additional_highlights ">
+        <div class="date">
+            <h4> {{checl.title}} </h4>
+          <h4>rs {{checl.amount}}</h4>
+          </div>
+        </li>
+      </span>
+    </ul>
+
+
+<ion-label class="label ad" style="margin-bottom:0px;"  *ngIf="gall">Gallery:</ion-label>
+
+
+<ion-grid style="padding: 0;">
+  <ion-row>
+ <ion-col col-3 >
+   <div class="upld" *ngFor="let gallss of gall"  >
+        <img [src]="gallss.img" />
+      </div>
+    </ion-col>
+
+
+    <!--<ion-col col-3>
+      <div class="upld">
+        <img src="assets/image/1.jpg" />
+      </div>
+    </ion-col>
+
+    <ion-col col-3>
+      <div class="upld">
+        <img src="assets/image/1.jpg" />
+      </div>
+    </ion-col>
+
+    <ion-col col-3>
+      <div class="upld">
+        <img src="assets/image/1.jpg" />
+      </div>
+    </ion-col>-->
+
+  </ion-row>
+</ion-grid>
+
+
+
+<button ion-button block outline color="blue" class="pay">Link With Paytm</button>
+
+</div><!--on_end-->
+
+</ion-item-group>
+</ion-list>
+<div *ngIf="userdata.location">
+                                  
+    <ion-list class="base" *ngIf="userdata.location !='' ">
+    <ion-item-group>
+        <ion-item-divider color="light">Location</ion-item-divider>
+ <ion-item *ngIf="userdata.location !='undefined'">
+        <h3 style="padding-left: 8px; font-family: Lora-Regular">{{userdata.location}}</h3>
+</ion-item>
+<!--
+<div class="map">
+  <img src="assets/image/map.jpg" />
+</div>-->
+
+</ion-item-group>
+</ion-list>
+</div>
+<div *ngIf="userdata.product_detail!='undefined' && userdata.effective_date!='undefined' && userdata.discount_amount!='undefined'">
+  <ion-list class="base" *ngIf="userdata.product_detail !='' || userdata.effective_date !='' || userdata.discount_amount !='' ">
+    <ion-item-group>
+        <ion-item-divider color="light"  *ngIf="userdata.product_detail!='undefined' && userdata.effective_date!='undefined' && userdata.discount_amount!='undefined'">Deals</ion-item-divider>
+      <ion-item class="area" *ngIf="userdata.product_detail !='undefined'">
+         <h3 style="padding-left: 8px; font-family: Lora-Regular">{{userdata.product_detail}}</h3>
+        <!--<textarea type="text" placeholder="Product Detail" class="txt_area"></textarea>-->
+      </ion-item>
+
+      <ion-item *ngIf="userdata.effective_date !='undefined'">
+         <h3 style="padding-left: 8px; font-family: Lora-Regular">{{userdata.effective_date}}</h3>
+        <!--<ion-input type="text" placeholder="Effective Date"></ion-input>-->
+      </ion-item>
+
+       <ion-item *ngIf="userdata.discount_amount !='undefined'">
+          <h3 style="padding-left: 8px; font-family: Lora-Regular">{{userdata.discount_amount}}</h3>
+    <!--<ion-input type="text" placeholder="Discount Amount"></ion-input>-->
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+  </div>
+</form>
+
+</ion-content>

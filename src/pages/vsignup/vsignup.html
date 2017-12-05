@@ -1,0 +1,145 @@
+<ion-header hidden>
+
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+  <div style="height:10vh;float:left;width:100%;"></div>
+
+  <div class="logo">
+    <img src="assets/image/logo.png">
+  </div>
+
+  <div style="height:5vh;float:left;width:100%;"></div>
+
+  <div class="signin_field">
+    <form #heroForm="ngForm" novalidate>
+
+      <ion-list>
+
+        <ion-item>
+          <ion-label>Vendor Type</ion-label>
+          <ion-select [(ngModel)]="data.name" name='name' #name="ngModel" placeholder='Vendor Type'>
+            <!--remove  [ngModelOptions]="{standalone: true}"> if you don't need it in the form -->
+            <!--<ion-option value="Vendor Type" >Vendor Type</ion-option>-->
+            <ion-option value="Photographer">Photographer</ion-option>
+            <ion-option value="Bridal Wear">Bridal Wear</ion-option>
+            <ion-option value="Wedding Decorator">Wedding Decorator</ion-option>
+            <ion-option value="Make up">Make up</ion-option>
+            <ion-option value="Groomwear">Groomwear</ion-option>
+            <ion-option value="Wedding planners">Wedding Planners</ion-option>
+            <ion-option value="Wedding venue">Wedding Venue</ion-option>
+            <ion-option value="Wedding cards">Wedding Cards</ion-option>
+            <!--<ion-option value="Wedding videography">Wedding Videography</ion-option>-->
+            <ion-option value="Mehndi artist">Mehndi Artist</ion-option>
+            <ion-option value="Wedding cakes">Wedding Cakes</ion-option>
+            <ion-option value="Wedding jewellery">Wedding Jewellery</ion-option>
+            <ion-option value="Wedding catering">Wedding Catering</ion-option>
+            <ion-option value="Sangeet choreographers">Sangeet Choreographers</ion-option>
+            <ion-option value="wedding accessories">Wedding Accessories</ion-option>
+            <ion-option value="wedding favours">Wedding Favours</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="text" placeholder="Company Name" [(ngModel)]="data.company" name="company" #company="ngModel" required></ion-input>
+        </ion-item>
+        <div *ngIf="company.errors && (company.dirty || company.touched)" class="alert alert-danger">
+          <div [hidden]="!company.errors.required" class="alert alert-danger">
+            Company Name is required
+          </div>
+        </div>
+        <ion-item>
+          <ion-input type="tel" placeholder="Phone Number(Only Indian Number)" [(ngModel)]="data.number" name="number" #number="ngModel"
+            required [maxlength]="10"></ion-input>
+        </ion-item>
+        <div *ngIf="number.errors && (number.dirty || number.touched)" class="alert alert-danger">
+          <div [hidden]="!number.errors.required" class="alert alert-danger">
+            Phone Number is required
+          </div>
+          <!--<div [hidden]="!number.errors.pattern" class="alert alert-danger">
+ 			     	 Enter a valid Phone Number
+           </div>-->
+          <div [hidden]="!number.errors.maxlength" class="alert alert-danger">
+            Enter a valid length of Phone Number
+          </div>
+        </div>
+        <!--<ion-item>
+            <ion-input type="text" placeholder="User Name"></ion-input>
+          </ion-item>
+        -->
+        <!--<ion-item>
+            <ion-input type="text" placeholder="Email" [(ngModel)]="data.email" name="email" #email="ngModel"  required></ion-input>
+          </ion-item>
+            <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+          <div [hidden]="!email.errors.required" class="alert alert-danger">
+            Email is required
+            </div>
+             <div [hidden]="!email.errors.pattern" class="alert alert-danger">
+            Enter a valid Email Address
+            </div>
+          </div>   -->
+        <ion-item>
+          <ion-input type="password" placeholder="Password" [(ngModel)]="data.password" name="password" #password="ngModel" required></ion-input>
+        </ion-item>
+        <div *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger">
+          <div [hidden]="!password.errors.required" class="alert alert-danger">
+            Password is required
+          </div>
+        </div>
+        <ion-item>
+          <ion-input type="password" placeholder="Confirm Password" [(ngModel)]="data.cpassword" name="cpassword" #cpassword="ngModel"
+            required></ion-input>
+        </ion-item>
+        <div *ngIf="cpassword.errors && (cpassword.dirty || cpassword.touched)" class="alert alert-danger">
+          <div [hidden]="!cpassword.errors.required" class="alert alert-danger">
+            Confirm Password is required
+          </div>
+        </div>
+
+        <!--
+          <ion-item>
+            <ion-input type="text" placeholder="Address"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="text" placeholder="Location"></ion-input>
+          </ion-item>-->
+
+        <ion-item>
+          <ion-label>How did you find out about us?</ion-label>
+          <ion-select [(ngModel)]="data.nameb" name='nameb' #nameb="ngModel" placeholder='How did you find out about us?'>
+            <!--remove  [ngModelOptions]="{standalone: true}"> if you don't need it in the form -->
+            <!--<ion-option value="How did you find out about us?" checked="true">How did you find out about us?</ion-option>-->
+            <ion-option value="Friends" checked="true">Friends</ion-option>
+            <ion-option value="Friends of Friends">Friends of Friends</ion-option>
+            <ion-option value="Social Media">Social Media</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Invite Code" [(ngModel)]="data.invite" name="invite" #invite="ngModel"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <button ion-button type="submit" (click)="onSubmit(heroForm)" [disabled]="!heroForm.valid">sign up</button>
+      <!--<button ion-button (click)="process()">sign up</button>-->
+
+    </form>
+
+    <a (click)="loginsss()" class="signup_line"> Already have an account? Sign In</a>
+
+    <!--<a (click)="login1()" class="signup_line"> Already have an account? Sign In</a>-->
+
+  </div>
+
+
+  <div style="height:15vh;float:left;width:100%;"></div>
+
+
+</ion-content>

@@ -1,0 +1,132 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+@font-face{
+    font-family:Lora-Bold;
+    src:url('../assets/fonts/lora-bold.woff2');
+}
+@font-face{
+    font-family:Lora-Regular;
+    src:url('../assets/fonts/lora-regular.woff2');
+}
+h2,h1,h3,h4,h5,h6{
+    font-family:Lora-Bold;
+}
+p,.button,button,.header .toolbar-title{
+    font-family:Lora-Regular;
+}
+.button{
+    height: 50px;
+    text-transform: capitalize;
+    box-shadow: none;
+}
+.button span,button span{
+    font-size: 16px;
+}
+body{
+    font-family: Lora !important;
+}
+
+/***header***/
+
+.header .toolbar-background{ 
+background: #feb483; /* Old browsers */
+background: -moz-linear-gradient(left, #feb483 1%, #ff9980 42%, #fe8884 69%, #ff8b8c 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, #feb483 1%,#ff9980 42%,#fe8884 69%,#ff8b8c 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, #feb483 1%,#ff9980 42%,#fe8884 69%,#ff8b8c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feb483', endColorstr='#ff8b8c',GradientType=1 ); /* IE6-9 */
+    border:none;
+}
+.header .toolbar-title {
+    color: #fff;
+    font-weight: normal;
+    text-transform: capitalize;
+}
+
+
+
+No classes on this element
+.ion-md-menu::before {
+
+    content: "\f32a";
+
+}
+ion-icon::before {
+
+    display: inline-block;
+
+}
+.bar-button-menutoggle-md ion-icon {
+
+    font-size: 2.4rem;
+
+}
+ion-icon {
+
+    font-size: 1.2em;
+
+}
+ion-icon {
+
+    font-family: "Ionicons";
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    text-rendering: auto;
+    text-transform: none;
+
+}
+.button span, button span {
+
+    font-size: 16px;
+
+}
+.bar-button-default-md{color: #fff;}
+
+.bar-button-default-ios{color: #fff;}
+
+.tabbar{
+background: #feb483 !important; /* Old browsers */
+background: -moz-linear-gradient(left, #feb483 1%, #ff9980 42%, #fe8884 69%, #ff8b8c 100%) !important; /* FF3.6-15 */
+background: -webkit-linear-gradient(left, #feb483 1%,#ff9980 42%,#fe8884 69%,#ff8b8c 100%) !important; /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, #feb483 1%,#ff9980 42%,#fe8884 69%,#ff8b8c 100%) !important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feb483', endColorstr='#ff8b8c',GradientType=1 ) !important; /* IE6-9 */
+    border:none !important;
+}
+
+.tabs .tab-button[aria-selected="true"] .tab-button-icon {
+    color: #fff !important;
+
+}
+
+.tabs .tab-button[aria-selected="true"] {
+    color: #fff;
+}
+
+.tabs .tab-button{
+    color: rgba(207, 62, 62, 0.7);
+    font-family: lora;
+}
+
+.tabs .tab-button-icon {
+    color: rgba(207, 62, 62, 0.7);
+}
+
+.alert.alert-danger {
+    color: rgba(207, 62, 62, 0.7);
+}

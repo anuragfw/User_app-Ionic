@@ -1,0 +1,89 @@
+<ion-header>
+  
+    <ion-navbar>
+      <ion-buttons start>
+            <button ion-button menuToggle>
+              <ion-icon name="menu"></ion-icon>
+            </button>
+          </ion-buttons>
+      <ion-title>Edit Profile</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content>
+  
+  
+       <form #heroForm="ngForm"  novalidate>
+  <div class="pick_upload">
+  
+    <div class="pick" *ngIf='userdata.image'>
+      <img [src]="userdata.image">
+    </div>
+    <a type="file" (click)="CameraAction1()" class="edit"><ion-icon ios="ios-create" md="md-create"></ion-icon></a>
+  
+  </div>
+  
+  
+  <ion-item-divider color="light">Basic Info</ion-item-divider>
+  
+    <ion-list class="base" padding="true">
+      <ion-item-group>
+        <ion-item>
+          <ion-input type="text" [(ngModel)]="data.name" name='name' #name="ngModel" placeholder="Name"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-input type="text" [(ngModel)]="data.email" name="email" #email="ngModel" placeholder="Email"></ion-input>
+        </ion-item>
+        <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+             <div [hidden]="!email.errors.pattern" class="alert alert-danger">
+            Enter a valid Email Address
+            </div>
+          </div>
+  
+        <ion-item>
+          <ion-input type="number" [(ngModel)]="data.phone" name="phone" #phone="ngModel"  pattern='[0-9]+' placeholder="Phone Number"></ion-input>
+        </ion-item>
+        <div *ngIf="phone.errors && (phone.dirty || phone.touched)" class="alert alert-danger">
+        <div [hidden]="!phone.errors.pattern" class="alert alert-danger">
+         Enter a valid Phone Number
+         </div>
+       </div> 
+  
+        <ion-item class="textarea1">
+          <textarea type="text" name="address" [(ngModel)]="data.address" #address="ngModel" cols="1" rows="5" placeholder="Address"></textarea>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="number" [(ngModel)]="data.zip" name="zip" #zip="ngModel"  pattern='[0-5]+' placeholder="Zip Code"></ion-input>
+        </ion-item>
+        <div *ngIf="zip.errors && (zip.dirty || zip.touched)" class="alert alert-danger">
+          <div [hidden]="!zip.errors.pattern" class="alert alert-danger">
+           Enter a valid Zip Code
+           </div>
+         </div> 
+  
+        <ion-list radio-group [(ngModel)]="data.gender" name="gender" #gender="ngModel" class="gender">
+          <ion-label>Gender</ion-label>
+          <ion-item>
+            <ion-label class="gender_type">Male</ion-label>
+            <ion-radio checked="true" value="male"></ion-radio>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label class="gender_type">Female</ion-label>
+            <ion-radio value="female"></ion-radio>
+          </ion-item>
+        
+        </ion-list>
+  
+      </ion-item-group>
+    </ion-list>
+  
+    <button ion-button type="submit" (click)="onSubmit(heroForm)" [disabled]="!heroForm.valid" class="publish">Save</button>
+  
+  </form>
+
+  </ion-content>

@@ -1,0 +1,49 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-buttons>
+    <ion-title>Job Manager</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+ 
+  <div class="seg">
+  <ion-segment [(ngModel)]="pet">
+    <ion-segment-button value="completed">
+      Completed
+    </ion-segment-button>
+    <ion-segment-button value="shortlisted">
+      Shortlisted
+    </ion-segment-button>
+    <ion-segment-button value="progress">
+      Job in Progress
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+<div [ngSwitch]="pet">
+
+  <ion-list *ngSwitchCase="'completed'" class="bg">
+
+  </ion-list><!--Completed-->
+
+  <ion-list *ngSwitchCase="'shortlisted'" class="bg_b">
+    
+
+  </ion-list><!--Shortlisted-->
+
+  <ion-list *ngSwitchCase="'progress'" class="bg_b">
+
+  </ion-list><!--Progress-->
+
+</div>
+
+     </ion-content>

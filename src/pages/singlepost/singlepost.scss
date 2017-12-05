@@ -1,0 +1,90 @@
+page-singlepost {
+
+
+.cnt {
+    padding: 8px 8px;
+}
+
+.cnt .card-title {
+    font-size: 16px;
+    margin: 0;
+    padding: 0px 0 0;
+    font-family:Lora-Regular;
+}
+
+.cnt p {
+    font-size: 12px;
+    line-height: 16px;
+    color: #7b7676;
+    font-family: roboto;
+}
+
+.cnt h4{font-family: Lora-Regular !important;}
+
+
+.date {
+  width: 100%;
+  float: left;
+}
+.date h4:nth-child(1) {
+  float: left;
+  width: auto;
+  font-size: 12px;
+}
+.date h4:nth-child(2) {
+  float: right;
+  width: auto;
+  font-size: 12px;
+}
+
+
+.part {
+  float: left;
+  width: 100%;
+  padding: 0 0 0px 16px;
+  margin: 0px 0 4px 0;
+}
+.part li span:nth-child(1) {
+  float: left;
+  width: 60%;
+}
+.part li span:nth-child(2) {
+  float: right;
+  width: 40%;
+  text-align: right;
+  color: #e5053a;
+}
+.part li {
+  color: #adaaa9;
+}
+
+.actin button {
+  height: 22px;
+  border-radius: 5px;
+  margin: 0 0 5px 0;
+  padding: 0 9px;
+  color: #e5053a;
+border-color: #e5053a;
+}
+
+.actin button:hover {
+color: #fff;
+background: #feb483 !important; /* Old browsers */
+background: -moz-linear-gradient(left, #feb483 1%, #ff9980 42%, #fe8884 69%, #ff8b8c 100%) !important;; /* FF3.6-15 */
+background: -webkit-linear-gradient(left, #feb483 1%,#ff9980 42%,#fe8884 69%,#ff8b8c 100%) !important;; /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, #feb483 1%,#ff9980 42%,#fe8884 69%,#ff8b8c 100%) !important;; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feb483', endColorstr='#ff8b8c',GradientType=1 ) !important;; /* IE6-9 */
+border-color: #ff9980;
+}
+
+.actin button span {
+  font-size: 11px;
+}
+.actin {
+  float: left;
+  width: 98%;
+  margin: auto 8px;
+}
+
+}
+

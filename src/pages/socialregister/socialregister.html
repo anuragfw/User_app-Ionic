@@ -1,0 +1,49 @@
+<!--
+  Generated template for the SocialregisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>ADD</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  
+  <div style="height:10vh;float:left;width:100%;"></div>
+  
+  <div class="logo">
+      <img src="assets/image/logo.png">
+     </div>
+  
+     <div style="height:5vh;float:left;width:100%;"></div>
+  
+     <div class="signin_field">
+     <form #heroForm="ngForm"  novalidate>
+  
+     <ion-list>               
+               <ion-item>
+       <ion-input type="tel" placeholder="Phone Number(Only Indian Number)" [(ngModel)]="data.number" name="number" #number="ngModel" required [maxlength]="10"></ion-input>
+          </ion-item>
+           <div *ngIf="number.errors && (number.dirty || number.touched)" class="alert alert-danger">
+          <div [hidden]="!number.errors.required" class="alert alert-danger">
+           Phone Number is required
+            </div>
+            <!--<div [hidden]="!number.errors.pattern" class="alert alert-danger">
+ 			     	 Enter a valid Phone Number
+           </div>-->
+           <div [hidden]="!number.errors.maxlength" class="alert alert-danger">
+ 			     	 Enter a valid length of Phone Number
+           </div>
+          </div>         
+     </ion-list>
+       <button ion-button type="submit" (click)="onSubmit(heroForm)" [disabled]="!heroForm.valid">Save</button>     
+     </form>
+     </div>
+    
+</ion-content>

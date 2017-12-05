@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-navbar>
+       <ion-buttons start>
+         <button ion-button menuToggle>
+           <ion-icon name="menu"></ion-icon>
+         </button>
+       </ion-buttons>
+           <ion-title>Market Place</ion-title>
+  
+     </ion-navbar>
+  </ion-header>
+  
+       
+  <ion-content>
+      <div *ngFor="let th of show; let i = index" [attr.data-index]="i">
+    <ion-card class="box">
+    <ion-card-header style="position: relative;font-family:Lora-Regular;">
+     <div class="px">
+       <img [src]="th.image">
+    </div>
+  
+    </ion-card-header>
+    <ion-card-content style="font-family:roboto;">
+      
+        <h3>{{th.name}}
+  
+          <ul class="stars">
+            <li><ion-icon name="star" class="active"></ion-icon></li>
+            <li><ion-icon name="star"></ion-icon></li>
+            <li><ion-icon name="star"></ion-icon></li>
+            <li><ion-icon name="star"></ion-icon></li>
+            <li><ion-icon name="star"></ion-icon></li>
+          </ul>
+        
+        </h3>
+        <h4><span style="color:#e5053a;">rs 165,000 onwards</span><span style="float:right; color:#484848;">5 reviews</span></h4>
+        <p><ion-icon ios="ios-pin" md="md-pin"></ion-icon>location</p>
+    </ion-card-content>
+  </ion-card>
+ </div>
+  
+  </ion-content>

@@ -1,0 +1,116 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="presentModal();">
+        <ion-icon name="options"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+  <div class="seg">
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="profile">
+        News Feed
+      </ion-segment-button>
+      <ion-segment-button value="manage">
+        Manage Connection
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="pet">
+
+    <ion-list *ngSwitchCase="'profile'" class="bg">
+      <div *ngFor="let th of show; let i = index" [attr.data-index]="i">
+
+        <ion-card *ngIf="th.post_type=='BlogPost'">
+          <div class="px">
+            <img [src]="th.image" />
+            <ion-fab top right>
+              <button ion-fab mini class="fb">
+                <ion-icon name="share"></ion-icon>
+              </button>
+              <ion-fab-list side="left">
+                <button ion-fab>
+                  <ion-icon name="logo-facebook" (click)="fbsss()"></ion-icon>
+                </button>
+                <button ion-fab>
+                  <ion-icon name="logo-twitter" (click)="twitter()"></ion-icon>
+                </button>
+                <button ion-fab>
+                  <ion-icon name="logo-vimeo" (click)="vimeo()"></ion-icon>
+                </button>
+                <button ion-fab>
+                  <ion-icon name="logo-googleplus" (click)="email()"></ion-icon>
+                </button>
+              </ion-fab-list>
+            </ion-fab>
+            <div class="overlay"></div>
+            <div class="accepts actin">
+              <button ion-button outline small>
+                Follow
+              </button>
+            </div>
+            <!--{{th.is_liked}}-->
+            <ion-icon name="md-thumbs-up" class="like" (click)="like(th._id, i)" *ngIf="th.is_liked==0"></ion-icon>
+            <ion-icon name="md-thumbs-up" class="like" (click)="like(th._id, i)" *ngIf="th.is_liked==1" style="color:red"></ion-icon>
+          </div>
+          <ion-card-content class="real">
+
+            <h3>{{th.title}}
+              <span> ({{th.location}})</span>
+            </h3>
+            <p>{{th.description.substring(0,58)}}...
+              <a (click)="readmore(th._id)">Read More</a>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-list>
+    <!--profile-->
+
+    <ion-list *ngSwitchCase="'manage'" class="bg_b invite">
+      <ion-searchbar style="background: transparent;"></ion-searchbar>
+      <span class="snd">Send Invitation:</span>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <button ion-button small class="inv">Invite via Email</button>
+          </ion-col>
+          <ion-col col-6>
+            <button ion-button small class="inv">Invite via Contacts</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-item (click)="conectPage();">
+        Connection List
+        <ion-icon ios="ios-arrow-forward" md="ios-arrow-forward" item-end></ion-icon>
+      </ion-item>
+
+      <ion-item (click)="rankPage();">
+        Connection Ranking
+        <ion-icon ios="ios-arrow-forward" md="ios-arrow-forward" item-end></ion-icon>
+      </ion-item>
+
+      <ion-item (click)="rewardPage();">
+        Reward
+        <ion-icon ios="ios-arrow-forward" md="ios-arrow-forward" item-end></ion-icon>
+      </ion-item>
+
+    </ion-list>
+    <!--manage-->
+  </div>
+
+</ion-content>

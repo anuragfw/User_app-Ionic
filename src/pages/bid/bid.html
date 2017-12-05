@@ -1,0 +1,45 @@
+<!--
+  Generated template for the BidPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>bid</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<form #heroForm="ngForm"  novalidate>
+  <ion-list class="base">
+    <ion-item-group>
+         <ion-item>
+        <ion-input type="text" placeholder="Name" [(ngModel)]="data.title" name="title" #title="ngModel"  required></ion-input>
+      </ion-item>
+           <ion-item>
+        <ion-input type="text" placeholder="Cost" [(ngModel)]="data.cost" name="cost" #cost="ngModel"  required></ion-input>
+      </ion-item>
+         <ion-item>
+        <ion-input type="text" placeholder="Time" [(ngModel)]="data.time" name="time" #time="ngModel"  required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Special Needs" [(ngModel)]="data.location" name="location" #location="ngModel"  required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Special Needs" [(ngModel)]="data.slug" name="slug" #slug="ngModel"  required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Special Needs" [(ngModel)]="data.special_needs" name="special_needs" #special_needs="ngModel"  required></ion-input>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+
+  <button ion-button class="publish" [disabled]="!heroForm.valid" (click)="addbid(heroForm,data._id)">Add</button>
+
+</form>
+
+</ion-content>

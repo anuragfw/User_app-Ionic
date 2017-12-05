@@ -1,0 +1,65 @@
+<!--
+  Generated template for the JobdetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Post Detail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<ion-card *ngIf="th.post_type=='JobPost'">
+  <ion-item class="nme">
+
+        <h4>Name: {{th.title}}</h4>
+        <h4>Cost: <span style="color:#e5053a;">{{th.cost}}</span></h4>
+        <h4>Time: {{th.time}}</h4>
+        <h4>Special Needs:</h4>
+
+
+        <ion-avatar item-end>
+          <img src="assets/image/e.jpg">
+        </ion-avatar>
+      </ion-item>
+
+      <ion-card-content>
+        <p class="spec"> {{th.special_needs}}.</p>
+             <p>{{th.description}}  </p>
+      </ion-card-content>
+        <div class="actin">
+                  <button ion-button outline  small (click)="accept(th._id)">
+                    Accept
+                  </button>
+          
+                  <button ion-button outline  small>
+                    Bid
+                  </button>
+            
+                  <button ion-button outline small>
+                    Recommend
+                  </button>
+              
+                  <button ion-button outline small>
+                   Bid Together
+                  </button>
+        </div>
+
+    </ion-card>
+ <ion-card *ngIf="th.post_type=='BlogPost'">
+      <div class="px"><img [src]="th.image"/>
+  
+      <div class="overlay"></div>
+      </div>
+       <ion-card-content class="real">
+         <h3>{{th.title}}<span> ({{th.location}})</span></h3>
+        <p>{{th.description}}  </p>
+      </ion-card-content>
+    </ion-card>
+
+</ion-content>
